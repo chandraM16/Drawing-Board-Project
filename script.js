@@ -18,13 +18,6 @@ let note = document.querySelector(".note");
 //upload
 let upload = document.querySelector(".upload");
 
-//mode
-let mode = document.querySelector(".mode");
-let isDarkMode = localStorage.getItem("isDarkMode");
-console.log(isDarkMode);
-let drawBoard = document.querySelector(".draw-board");
-applyMode();
-
 //clear all open control
 document.querySelector("canvas").addEventListener("dblclick", (e) => {
   isPencilOpen = false;
@@ -173,22 +166,7 @@ function dragDrop(element, event) {
   };
 }
 
-// apply ode
-mode.addEventListener("click", (e) => {
-  e.stopPropagation();
-  isDarkMode = localStorage.getItem("isDarkMode");
-  console.log(isDarkMode);
-  if (isDarkMode == "true") {
-    // make light mode
-    mode.innerHTML = "dark_mode";
-    // drawBoard.style.backgroundColor = "white";
-    localStorage.setItem("isDarkMode", false);
-  } else {
-    mode.innerHTML = "light_mode";
-    localStorage.setItem("isDarkMode", true);
-    // drawBoard.style.backgroundColor = "black";
-  }
-});
+
 
 // upload the photo
 upload.addEventListener("click", (e) => {
@@ -231,17 +209,4 @@ upload.addEventListener("click", (e) => {
   });
 });
 
-function applyMode() {
-  isDarkMode = localStorage.getItem("isDarkMode");
-  console.log(isDarkMode);
-  if (isDarkMode != "true") {
-    // make light mode
-    mode.innerHTML = "dark_mode";
-    // drawBoard.style.backgroundColor = "white";
-    localStorage.setItem("isDarkMode", false);
-  } else {
-    mode.innerHTML = "light_mode";
-    localStorage.setItem("isDarkMode", true);
-    // drawBoard.style.backgroundColor = "black";
-  }
-}
+
